@@ -4,9 +4,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden font-sans">
       {/* Header with border radius */}
-      <header className="mx-6 mt-6 px-6 py-4 relative z-20 rounded-2xl" style={{ backgroundColor: '#5FBFF9' }}>
+      <header className="mx-3 md:mx-6 mt-4 md:mt-6 px-4 md:px-6 py-5 md:py-4 relative z-20 rounded-2xl" style={{ backgroundColor: '#5FBFF9' }}>
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3 md:space-x-4">
             <button className="text-white md:hidden">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -16,11 +16,11 @@ export default function Home() {
               <Image 
                 src="/icon (7).png" 
                 alt="OpoFast logo" 
-                width={55} 
-                height={55}
-                className="object-contain"
+                width={45} 
+                height={45}
+                className="object-contain md:w-[55px] md:h-[55px]"
               />
-              <span className="text-white font-bold text-xl md:text-2xl">opoFast</span>
+              <span className="text-white font-bold text-lg md:text-2xl">opoFast</span>
             </div>
           </div>
           
@@ -31,11 +31,11 @@ export default function Home() {
           </nav>
           
           <div className="flex items-center space-x-2 md:space-x-3">
-            <button className="bg-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors text-sm md:text-base" style={{ color: '#5FBFF9' }}>
+            <button className="bg-white px-3 py-2.5 md:px-6 md:py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors text-sm md:text-base" style={{ color: '#5FBFF9' }}>
               <span className="hidden sm:inline">Fes-te Premium</span>
               <span className="sm:hidden">Premium</span>
             </button>
-            <button className="text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-medium hover:opacity-90 transition-colors text-sm md:text-base" style={{ backgroundColor: '#4A9FE7' }}>
+            <button className="text-white px-3 py-2.5 md:px-6 md:py-3 rounded-lg font-medium hover:opacity-90 transition-colors text-sm md:text-base" style={{ backgroundColor: '#4A9FE7' }}>
               <span className="hidden sm:inline">Iniciar Sessió</span>
               <span className="sm:hidden">Login</span>
             </button>
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
 
         {/* Hero section */}
-        <div className="container mx-auto px-6 py-16 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
           {/* Catalunya silhouette positioned in the center above text */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <div className="relative w-full h-full max-w-xl">
@@ -73,21 +73,21 @@ export default function Home() {
           </div>
 
           <div className="max-w-6xl mx-auto text-center relative z-20">
-            <h1 className="font-bold text-gray-900 mb-2" style={{ 
-              fontSize: 'clamp(36px, 8vw, 60px)', 
+            <h1 className="font-bold text-gray-900 mb-3 md:mb-2" style={{ 
+              fontSize: 'clamp(28px, 7vw, 60px)', 
               fontWeight: 800, 
-              lineHeight: '1.1', 
+              lineHeight: '1.2', 
               letterSpacing: '0%',
               fontFamily: 'var(--font-inter)',
               textRendering: 'optimizeLegibility'
             }}>
               Tests online per a oposicions a Catalunya:
             </h1>
-            <h2 className="mb-8" style={{ 
+            <h2 className="mb-6 md:mb-8" style={{ 
               color: '#5FBFF9', 
-              fontSize: 'clamp(40px, 9vw, 70px)', 
+              fontSize: 'clamp(32px, 8vw, 70px)', 
               fontWeight: 800, 
-              lineHeight: '1.2', 
+              lineHeight: '1.3', 
               letterSpacing: '0%',
               fontFamily: 'var(--font-inter)',
               textRendering: 'optimizeLegibility'
@@ -95,22 +95,22 @@ export default function Home() {
               Mossos, Bombers, i més.
             </h2>
             
-            <p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-base md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
               Prepara les proves amb preguntes actualitzades, simulacres i seguiment del teu progrés.
               <br />
               Tot en català i amb el millor preu.
             </p>
             
-            <button className="text-white px-10 py-5 rounded-lg text-xl font-medium hover:opacity-90 transition-colors" style={{ backgroundColor: '#5FBFF9' }}>
+            <button className="text-white px-8 md:px-10 py-4 md:py-5 rounded-lg text-lg md:text-xl font-medium hover:opacity-90 transition-colors" style={{ backgroundColor: '#5FBFF9' }}>
               Uneix-te i comença
             </button>
           </div>
         </div>
 
         {/* Tests section - positioned exactly as in Figma */}
-        <div className="mx-6 rounded-3xl shadow-lg relative z-10 mb-16" style={{ backgroundColor: '#F9F4F1' }}>
-          {/* Simple testimonial bubble */}
-          <div className="absolute -top-4 right-12 bg-white rounded-xl p-3 shadow-md max-w-xs z-20">
+        <div className="mx-3 md:mx-6 rounded-3xl shadow-lg relative z-10 mb-12 md:mb-16" style={{ backgroundColor: '#F9F4F1' }}>
+          {/* Simple testimonial bubble - only on desktop */}
+          <div className="absolute -top-4 right-8 md:right-12 bg-white rounded-xl p-3 shadow-md max-w-xs z-20 hidden md:block">
             <div className="text-center mb-2">
               <span className="text-lg">👍</span>
               <div className="text-xs text-gray-600 font-medium">100% recomanable</div>
@@ -118,21 +118,21 @@ export default function Home() {
             <p className="text-xs text-gray-700 italic">"Els tests són súper realistes!"</p>
           </div>
 
-          <div className="container mx-auto px-12 py-16">
-            <div className="text-center mb-16">
-              <h3 className="font-bold text-gray-900 mb-2" style={{ 
-                fontSize: '32px', 
+          <div className="container mx-auto px-6 md:px-12 py-12 md:py-16">
+            <div className="text-center mb-12 md:mb-16">
+              <h3 className="font-bold text-gray-900 mb-3 md:mb-2 px-4 md:px-0" style={{ 
+                fontSize: 'clamp(24px, 5vw, 32px)', 
                 fontWeight: 'mixed', 
-                lineHeight: '1.0', 
+                lineHeight: '1.2', 
                 letterSpacing: '0%',
                 fontFamily: 'var(--font-inter)'
               }}>
                 La selecció de tests per a oposicions de bomber
               </h3>
-              <p className="text-gray-900" style={{ 
-                fontSize: '32px', 
+              <p className="text-gray-900 px-4 md:px-0" style={{ 
+                fontSize: 'clamp(24px, 5vw, 32px)', 
                 fontWeight: 'mixed', 
-                lineHeight: '1.0', 
+                lineHeight: '1.2', 
                 letterSpacing: '0%',
                 fontFamily: 'var(--font-inter)'
               }}>
@@ -141,11 +141,11 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-4 items-center justify-items-center max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-4 items-center justify-items-center max-w-4xl mx-auto">
               {/* Left side - decorative arrow and tests list */}
               <div className="relative w-full flex justify-center">
                 {/* Decorative curved arrow using Group.png - properly positioned */}
-                <div className="absolute -left-20 top-12 w-36 h-44">
+                <div className="absolute -left-20 top-12 w-36 h-44 hidden md:block">
                   <Image
                     src="/Group.png"
                     alt="Decorative arrow"
@@ -156,9 +156,9 @@ export default function Home() {
                 </div>
                 
                 {/* More compact and centered cards */}
-                <div className="space-y-3 w-full max-w-md">
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Llei de Protecció Civil de Catalunya</span>
+                <div className="space-y-4 md:space-y-3 w-full max-w-md">
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Llei de Protecció Civil de Catalunya</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -166,8 +166,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Gestió d'emergències i protocols d'actuació</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Gestió d'emergències i protocols d'actuació</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -175,8 +175,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Materials per a la lluita contra incendis</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Materials per a la lluita contra incendis</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -184,8 +184,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Organització territorial de Catalunya</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Organització territorial de Catalunya</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -193,8 +193,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Estatut d'Autonomia de Catalunya</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Estatut d'Autonomia de Catalunya</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -202,8 +202,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Constitució Espanyola de 1978</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Constitució Espanyola de 1978</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -214,14 +214,14 @@ export default function Home() {
               </div>
               
               {/* Right side - firefighter helmet - bigger and centered */}
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center mt-8 md:mt-0">
                 <div className="relative">
                   <Image
                     src="/ChatGPT Image 27 jul 2025, 19_47_19.png"
                     alt="Firefighter helmet"
-                    width={320}
-                    height={320}
-                    className="object-contain"
+                    width={280}
+                    height={280}
+                    className="object-contain md:w-[320px] md:h-[320px]"
                   />
                 </div>
               </div>
@@ -229,10 +229,50 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Mobile Testimonials Section - Only visible on mobile */}
+        <section className="mx-3 rounded-2xl shadow-sm relative z-10 mb-8 md:hidden" style={{ backgroundColor: '#FAFAFA' }}>
+          <div className="px-4 py-6">
+            <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">Què diuen els nostres estudiants</h4>
+            <div className="space-y-3">
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center mb-2">
+                  <span className="text-lg mr-2">👍</span>
+                  <div className="text-sm text-gray-600 font-medium">100% recomanable</div>
+                </div>
+                <p className="text-sm text-gray-700 italic">"Els tests són súper realistes!"</p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center mb-2">
+                  <span className="text-lg mr-2">❤️</span>
+                  <div className="text-sm text-gray-600 font-medium">La millor plataforma</div>
+                </div>
+                <p className="text-sm text-gray-700 italic">"Finalment he aprovat!"</p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center mb-2">
+                  <span className="text-lg mr-2">💪</span>
+                  <div className="text-sm text-gray-600 font-medium">He aprovat!</div>
+                </div>
+                <p className="text-sm text-gray-700 italic">"Els tests de Mossos són perfectes!"</p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center mb-2">
+                  <span className="text-lg mr-2">⭐</span>
+                  <div className="text-sm text-gray-600 font-medium">5 estrelles</div>
+                </div>
+                <p className="text-sm text-gray-700 italic">"L'equip sempre m'ajuda"</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* New dark section - La millor qualitat */}
-        <section className="bg-gray-900 shadow-lg relative z-10 mb-16">
-          {/* Simple testimonial bubble */}
-          <div className="absolute -top-6 left-16 bg-white rounded-xl p-3 shadow-md max-w-xs z-20">
+        <section className="bg-gray-900 shadow-lg relative z-10 mb-12 md:mb-16">
+          {/* Simple testimonial bubble - only on desktop */}
+          <div className="absolute -top-6 left-8 md:left-16 bg-white rounded-xl p-3 shadow-md max-w-xs z-20 hidden md:block">
             <div className="text-center mb-2">
               <span className="text-lg">❤️</span>
               <div className="text-xs text-gray-600 font-medium">La millor plataforma</div>
@@ -252,23 +292,23 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="container mx-auto px-12 py-16 relative z-10">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="container mx-auto px-6 md:px-12 py-12 md:py-16 relative z-10">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left side - Content */}
-              <div className="relative z-20 ml-8">
-                <h3 className="text-4xl font-bold text-white mb-6 leading-tight">
+              <div className="relative z-20 ml-0 md:ml-8">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight px-4 md:px-0">
                   La millor qualitat en tests d'oposicions,
                   <br />
                   en un sol lloc.
                 </h3>
                 
-                <div className="mb-8 relative">
-                  <a href="#" className="text-blue-400 text-xl font-semibold underline hover:text-blue-300 transition-colors">
+                <div className="mb-8 relative px-4 md:px-0">
+                  <a href="#" className="text-blue-400 text-lg md:text-xl font-semibold underline hover:text-blue-300 transition-colors">
                     Fes la prova i convènç-te'n!
                   </a>
                   
                   {/* Decorative arrow pointing from copy to button */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-16 rotate-90">
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-16 rotate-90 hidden md:block">
                     <Image
                       src="/Group.png"
                       alt="Decorative arrow"
@@ -279,24 +319,28 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="relative inline-block">
-                  <button className="text-white px-8 py-4 rounded-lg text-lg font-medium hover:opacity-90 transition-colors" style={{ backgroundColor: '#5FBFF9' }}>
+                <div className="relative inline-block px-4 md:px-0">
+                  <button className="text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-medium hover:opacity-90 transition-colors" style={{ backgroundColor: '#5FBFF9' }}>
                     Uneix-te i comença
                   </button>
                 </div>
               </div>
               
               {/* Right side - Number 1 with stars - even bigger */}
-              <div className="flex flex-col items-center justify-center text-center">
+              <div className="flex flex-col items-center justify-center text-center mt-8 md:mt-0">
                 <div className="relative">
-                  <span className="text-white font-bold leading-none" style={{ fontSize: '20rem' }}>1</span>
-                  <span className="text-white text-6xl font-normal absolute top-10 -left-16">nº</span>
+                  <span className="text-white font-bold leading-none" style={{ fontSize: 'clamp(8rem, 15vw, 20rem)' }}>1</span>
+                  <span className="text-white font-normal absolute" style={{ 
+                    fontSize: 'clamp(2rem, 4vw, 6xl)', 
+                    top: 'clamp(0.5rem, 2vw, 2.5rem)', 
+                    left: 'clamp(-2rem, -4vw, -4rem)' 
+                  }}>nº</span>
                 </div>
                 
                 {/* 5 Stars */}
-                <div className="flex space-x-3 mt-8">
+                <div className="flex space-x-2 md:space-x-3 mt-6 md:mt-8">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-12 h-12 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-8 h-8 md:w-12 md:h-12 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -307,9 +351,9 @@ export default function Home() {
         </section>
 
         {/* Mossos d'Esquadra tests section */}
-        <div className="mx-6 rounded-3xl shadow-lg relative z-10 mb-16" style={{ backgroundColor: '#F9F4F1' }}>
-          {/* Simple testimonial bubble */}
-          <div className="absolute -top-4 right-16 bg-white rounded-xl p-3 shadow-md max-w-xs z-20">
+        <div className="mx-3 md:mx-6 rounded-3xl shadow-lg relative z-10 mb-12 md:mb-16" style={{ backgroundColor: '#F9F4F1' }}>
+          {/* Simple testimonial bubble - only on desktop */}
+          <div className="absolute -top-4 right-8 md:right-16 bg-white rounded-xl p-3 shadow-md max-w-xs z-20 hidden md:block">
             <div className="text-center mb-2">
               <span className="text-lg">💪</span>
               <div className="text-xs text-gray-600 font-medium">He aprovat!</div>
@@ -317,21 +361,21 @@ export default function Home() {
             <p className="text-xs text-gray-700 italic">"Els tests de Mossos són perfectes!"</p>
           </div>
 
-          <div className="container mx-auto px-12 py-16">
-            <div className="text-center mb-16">
-              <h3 className="font-bold text-gray-900 mb-2" style={{ 
-                fontSize: '32px', 
+          <div className="container mx-auto px-6 md:px-12 py-12 md:py-16">
+            <div className="text-center mb-12 md:mb-16">
+              <h3 className="font-bold text-gray-900 mb-3 md:mb-2 px-4 md:px-0" style={{ 
+                fontSize: 'clamp(24px, 5vw, 32px)', 
                 fontWeight: 'mixed', 
-                lineHeight: '1.0', 
+                lineHeight: '1.2', 
                 letterSpacing: '0%',
                 fontFamily: 'var(--font-inter)'
               }}>
                 Prepara les oposicions a Mosso d'Esquadra amb els millors tests.
               </h3>
-              <p className="text-gray-900" style={{ 
-                fontSize: '32px', 
+              <p className="text-gray-900 px-4 md:px-0" style={{ 
+                fontSize: 'clamp(24px, 5vw, 32px)', 
                 fontWeight: 'mixed', 
-                lineHeight: '1.0', 
+                lineHeight: '1.2', 
                 letterSpacing: '0%',
                 fontFamily: 'var(--font-inter)'
               }}>
@@ -340,11 +384,11 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-4 items-center justify-items-center max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-4 items-center justify-items-center max-w-4xl mx-auto">
               {/* Left side - decorative arrow and tests list */}
               <div className="relative w-full flex justify-center">
                 {/* Decorative curved arrow using Group.png - properly positioned */}
-                <div className="absolute -left-20 top-12 w-36 h-44">
+                <div className="absolute -left-20 top-12 w-36 h-44 hidden md:block">
                   <Image
                     src="/Group.png"
                     alt="Decorative arrow"
@@ -355,9 +399,9 @@ export default function Home() {
                 </div>
                 
                 {/* More compact and centered cards */}
-                <div className="space-y-3 w-full max-w-md">
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Llei de Protecció Civil de Catalunya</span>
+                <div className="space-y-4 md:space-y-3 w-full max-w-md">
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Llei de Protecció Civil de Catalunya</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -365,8 +409,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Gestió d'emergències i protocols d'actuació</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Gestió d'emergències i protocols d'actuació</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -374,8 +418,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Materials per a la lluita contra incendis</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Materials per a la lluita contra incendis</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -383,8 +427,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Organització territorial de Catalunya</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Organització territorial de Catalunya</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -392,8 +436,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Estatut d'Autonomia de Catalunya</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Estatut d'Autonomia de Catalunya</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -401,8 +445,8 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
-                    <span className="font-semibold text-gray-900 text-base pr-4">Constitució Espanyola de 1978</span>
+                  <div className="flex items-center justify-between py-5 md:py-4 px-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <span className="font-semibold text-gray-900 text-sm md:text-base pr-4">Constitució Espanyola de 1978</span>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#5FBFF9' }}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -413,14 +457,14 @@ export default function Home() {
               </div>
               
               {/* Right side - Mossos image */}
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center mt-8 md:mt-0">
                 <div className="relative">
                   <Image
                     src="/ChatGPT Image 27 jul 2025, 20_17_51.png"
                     alt="Mossos d'Esquadra"
-                    width={320}
-                    height={320}
-                    className="object-contain"
+                    width={280}
+                    height={280}
+                    className="object-contain md:w-[320px] md:h-[320px]"
                   />
                 </div>
               </div>
@@ -429,9 +473,9 @@ export default function Home() {
         </div>
 
         {/* Statistics section */}
-        <section className="mx-6 rounded-3xl shadow-lg relative z-10 mb-16" style={{ backgroundColor: '#F8F9FA' }}>
-          {/* Simple testimonial bubble */}
-          <div className="absolute -bottom-4 right-8 bg-white rounded-xl p-3 shadow-md max-w-xs z-20">
+        <section className="mx-3 md:mx-6 rounded-3xl shadow-lg relative z-10 mb-12 md:mb-16" style={{ backgroundColor: '#F8F9FA' }}>
+          {/* Simple testimonial bubble - only on desktop */}
+          <div className="absolute -bottom-4 right-6 md:right-8 bg-white rounded-xl p-3 shadow-md max-w-xs z-20 hidden md:block">
             <div className="text-center mb-2">
               <span className="text-lg">⭐</span>
               <div className="text-xs text-gray-600 font-medium">5 estrelles</div>
@@ -439,34 +483,34 @@ export default function Home() {
             <p className="text-xs text-gray-700 italic">"L'equip sempre m'ajuda"</p>
           </div>
 
-          <div className="container mx-auto px-12 py-16">
-            <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="container mx-auto px-6 md:px-12 py-12 md:py-16">
+            <div className="text-center mb-10 md:mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 px-4 md:px-0">
                 Més de 10.000 estudiants ja confien en nosaltres
               </h3>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 md:px-0">
                 Els millors resultats en oposicions de Catalunya. Descobreix per què som la plataforma líder.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
               {/* Stat 1 */}
-              <div className="text-center bg-white rounded-2xl p-8 shadow-sm">
-                <div className="text-5xl font-bold mb-2" style={{ color: '#5FBFF9' }}>+2.500</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Preguntes</div>
-                <div className="text-gray-600">actualitzades i verificades per experts</div>
+              <div className="text-center bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+                <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#5FBFF9' }}>+2.500</div>
+                <div className="text-base md:text-lg font-semibold text-gray-900 mb-2">Preguntes</div>
+                <div className="text-sm md:text-base text-gray-600">actualitzades i verificades per experts</div>
               </div>
 
               {/* Stat 2 */}
-              <div className="text-center bg-white rounded-2xl p-8 shadow-sm">
-                <div className="text-5xl font-bold mb-2" style={{ color: '#5FBFF9' }}>24/7</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Suport</div>
-                <div className="text-gray-600">sempre disponible per ajudar-te</div>
+              <div className="text-center bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+                <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#5FBFF9' }}>24/7</div>
+                <div className="text-base md:text-lg font-semibold text-gray-900 mb-2">Suport</div>
+                <div className="text-sm md:text-base text-gray-600">sempre disponible per ajudar-te</div>
               </div>
             </div>
 
             <div className="text-center">
-              <button className="text-white px-10 py-5 rounded-lg text-xl font-medium hover:opacity-90 transition-colors" style={{ backgroundColor: '#5FBFF9' }}>
+              <button className="text-white px-8 md:px-10 py-4 md:py-5 rounded-lg text-lg md:text-xl font-medium hover:opacity-90 transition-colors" style={{ backgroundColor: '#5FBFF9' }}>
                 Comença ara gratis
               </button>
             </div>
