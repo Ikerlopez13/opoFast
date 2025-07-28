@@ -1,52 +1,66 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "../../contexts/AuthContext";
 
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-inter",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "OpoFast - Tests Online per Oposicions a Catalunya | Mossos, Bombers i Més",
-  description: "Prepara les teves oposicions a Catalunya amb OpoFast. Tests actualitzats per Mossos d'Esquadra, Bombers i més cossos. Simulacres, seguiment del progrés i contingut en català al millor preu.",
-  keywords: "oposicions catalunya, mossos esquadra, bombers catalunya, tests oposicions, preparació oposicions, simulacres oposicions, oposicions català",
+  title: "OpoFast - Preparació d'Oposicions a Catalunya",
+  description: "La plataforma líder per preparar oposicions de Bombers i Mossos d'Esquadra a Catalunya. Tests actualitzats, simulacres realistes i seguiment del teu progrés.",
+  keywords: [
+    "oposicions catalunya",
+    "bombers catalunya",
+    "mossos d'esquadra",
+    "tests oposicions",
+    "preparació oposicions",
+    "simulacres oposicions",
+    "opofast"
+  ],
   authors: [{ name: "OpoFast" }],
   creator: "OpoFast",
   publisher: "OpoFast",
-  openGraph: {
-    title: "OpoFast - Tests Online per Oposicions a Catalunya",
-    description: "Prepara les teves oposicions a Catalunya amb tests actualitzats per Mossos, Bombers i més cossos.",
-    url: "https://opofast.com",
-    siteName: "OpoFast",
-    locale: "ca_ES",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "OpoFast - Tests Online per Oposicions a Catalunya",
-    description: "Prepara les teves oposicions a Catalunya amb tests actualitzats per Mossos, Bombers i més cossos.",
-  },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
+  openGraph: {
+    type: 'website',
+    locale: 'ca_ES',
+    url: 'https://opofast.com',
+    siteName: 'OpoFast',
+    title: "OpoFast - Preparació d'Oposicions a Catalunya",
+    description: "La plataforma líder per preparar oposicions de Bombers i Mossos d'Esquadra a Catalunya. Tests actualitzats, simulacres realistes i seguiment del teu progrés.",
+    images: [
+      {
+        url: '/icon (7).png',
+        width: 1200,
+        height: 630,
+        alt: 'OpoFast - Preparació d\'Oposicions',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "OpoFast - Preparació d'Oposicions a Catalunya",
+    description: "La plataforma líder per preparar oposicions de Bombers i Mossos d'Esquadra a Catalunya.",
+    images: ['/icon (7).png'],
+    creator: '@opofast',
+  },
   icons: {
-    icon: "/icon (7).png",
-    shortcut: "/icon (7).png",
-    apple: "/icon (7).png",
-    other: {
-      rel: "apple-touch-icon-precomposed",
-      url: "/icon (7).png",
-    },
+    icon: '/icon (7).png',
+    shortcut: '/icon (7).png',
+    apple: '/icon (7).png',
   },
 };
 
@@ -56,9 +70,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ca">
-      <body className={`${inter.variable} antialiased`}>
-        {children}
+    <html lang="ca" className={inter.variable}>
+      <body className="font-sans">
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

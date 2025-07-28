@@ -1,47 +1,56 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Home() {
-  return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden font-sans">
-      {/* Header with border radius */}
-      <header className="mx-3 md:mx-6 mt-4 md:mt-6 px-4 md:px-6 py-5 md:py-4 relative z-20 rounded-2xl" style={{ backgroundColor: '#5FBFF9' }}>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3 md:space-x-4">
-            <button className="text-white md:hidden">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            <div className="flex items-center space-x-2 md:space-x-3">
-              <Image 
-                src="/icon (7).png" 
-                alt="OpoFast logo" 
-                width={45} 
-                height={45}
-                className="object-contain md:w-[55px] md:h-[55px]"
-              />
-              <span className="text-white font-bold text-lg md:text-2xl">opoFast</span>
-            </div>
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time and hide loader when page is ready
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // 1.5 seconds loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Loading screen component
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+        <div className="text-center">
+          {/* Logo */}
+          <div className="flex items-center justify-center space-x-3 mb-8">
+            <Image
+              src="/icon (7).png" 
+              alt="OpoFast logo" 
+              width={60} 
+              height={60}
+              className="object-contain"
+            />
+            <span className="text-3xl font-bold" style={{ color: '#5FBFF9' }}>opoFast</span>
           </div>
           
-          <nav className="hidden lg:flex items-center space-x-6">
-            <a href="#" className="text-white hover:text-blue-100 text-lg">Calculadora</a>
-            <a href="#" className="text-white hover:text-blue-100 text-lg">Notes de tall</a>
-            <a href="#" className="text-white hover:text-blue-100 text-lg">Millors Vídeos</a>
-          </nav>
-          
-          <div className="flex items-center space-x-2 md:space-x-3">
-            <button className="bg-white px-3 py-2.5 md:px-6 md:py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors text-sm md:text-base" style={{ color: '#5FBFF9' }}>
-              <span className="hidden sm:inline">Fes-te Premium</span>
-              <span className="sm:hidden">Premium</span>
-            </button>
-            <button className="text-white px-3 py-2.5 md:px-6 md:py-3 rounded-lg font-medium hover:opacity-90 transition-colors text-sm md:text-base" style={{ backgroundColor: '#4A9FE7' }}>
-              <span className="hidden sm:inline">Iniciar Sessió</span>
-              <span className="sm:hidden">Login</span>
-            </button>
+          {/* Loading animation */}
+          <div className="flex items-center justify-center space-x-2">
+            <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: '#5FBFF9', animationDelay: '0ms' }}></div>
+            <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: '#5FBFF9', animationDelay: '150ms' }}></div>
+            <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: '#5FBFF9', animationDelay: '300ms' }}></div>
           </div>
+          
+          {/* Loading text */}
+          <p className="text-gray-600 mt-4 text-lg">Carregant...</p>
         </div>
-      </header>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen relative overflow-hidden font-sans" style={{ backgroundColor: '#F8F3F0' }}>
+      <Header />
 
       {/* Main Content */}
       <main className="relative">
@@ -539,74 +548,225 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="container mx-auto px-6 py-12">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            {/* Logo and description */}
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-                <Image 
-                  src="/icon (7).png" 
-                  alt="OpoFast logo" 
-                  width={40} 
-                  height={40}
-                  className="object-contain"
-                />
-                <span className="text-white font-bold text-2xl">opoFast</span>
-              </div>
-              <p className="text-gray-400 mb-4 max-w-md">
-                La plataforma líder per preparar oposicions a Catalunya. Tests actualitzats, simulacres realistes i seguiment personalitzat.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Links columns */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4">Oposicions</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Mossos d'Esquadra</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Bombers</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-lg mb-4">Suport</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Centre d'ajuda</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contacte</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Política de privacitat</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Termes d'ús</a></li>
-              </ul>
-            </div>
+      {/* FAQ Section */}
+      <section className="mx-3 md:mx-6 rounded-3xl shadow-lg relative z-10 mb-12 md:mb-16" style={{ backgroundColor: '#F8F9FA' }}>
+        <div className="container mx-auto px-6 md:px-12 py-12 md:py-16">
+          <div className="text-center mb-10 md:mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 px-4 md:px-0">
+              Preguntes freqüents
+            </h3>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © 2025 OpoFast. Tots els drets reservats.
-            </p>
-            <p className="text-gray-400 text-sm mt-2 md:mt-0">
-              Fet amb ❤️ a Catalunya
-            </p>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {/* FAQ 1 */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <button 
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => {
+                  const content = document.getElementById('faq-1');
+                  const arrow = document.getElementById('arrow-1');
+                  if (content && arrow) {
+                    if (content.classList.contains('hidden')) {
+                      content.classList.remove('hidden');
+                      arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                      content.classList.add('hidden');
+                      arrow.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                }}
+              >
+                <span className="text-base md:text-lg font-medium text-gray-900 pr-4">
+                  Els tests d'oposicions d'OpoFast són gratuïts?
+                </span>
+                <svg id="arrow-1" className="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-1" className="px-6 pb-5 hidden">
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    A OpoFast pots realitzar tests de prova gratuïts de cada oposició per conèixer com funciona la plataforma. Nosaltres a aquest test li anomenem demo i pots completar-lo tantes vegades com vulguis. Per fer tests per temes, per matèries, simulacres d'examen, i molts altres, necessites subscriure't a alguna de les oposicions disponibles en qualsevol de les duracions que oferim.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ 2 */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <button 
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => {
+                  const content = document.getElementById('faq-2');
+                  const arrow = document.getElementById('arrow-2');
+                  if (content && arrow) {
+                    if (content.classList.contains('hidden')) {
+                      content.classList.remove('hidden');
+                      arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                      content.classList.add('hidden');
+                      arrow.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                }}
+              >
+                <span className="text-base md:text-lg font-medium text-gray-900 pr-4">
+                  Com estudiar per a oposicions amb tests?
+                </span>
+                <svg id="arrow-2" className="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-2" className="px-6 pb-5 hidden">
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    La millor manera de preparar una oposició amb tests és practicant constantment. A mesura que vas estudiant, realitza tests per validar els coneixements. Al finalitzar la jornada, practica amb un test de tot l'estudiat en el dia i en els dies previs, generant els teus propis simulacres d'examen. Repasar amb tests de preguntes fallades són només algunes de les tècniques que millors resultats ofereixen.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ 3 */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <button 
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => {
+                  const content = document.getElementById('faq-3');
+                  const arrow = document.getElementById('arrow-3');
+                  if (content && arrow) {
+                    if (content.classList.contains('hidden')) {
+                      content.classList.remove('hidden');
+                      arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                      content.classList.add('hidden');
+                      arrow.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                }}
+              >
+                <span className="text-base md:text-lg font-medium text-gray-900 pr-4">
+                  Es poden realitzar tests de temes concrets, per matèries, etc?
+                </span>
+                <svg id="arrow-3" className="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-3" className="px-6 pb-5 hidden">
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Sí, a OpoFast pots fer els tests al teu gust, és a dir, de temes concrets, mesclant varis temes, d'una matèria al complet, per apartats, de preguntes fallades, simulacres d'examen, exàmens de convocatòries anteriors, etc... i tot amb la garantia d'estar practicant amb el millor contingut del mercat i sempre actualitzat.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ 4 */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <button 
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => {
+                  const content = document.getElementById('faq-4');
+                  const arrow = document.getElementById('arrow-4');
+                  if (content && arrow) {
+                    if (content.classList.contains('hidden')) {
+                      content.classList.remove('hidden');
+                      arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                      content.classList.add('hidden');
+                      arrow.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                }}
+              >
+                <span className="text-base md:text-lg font-medium text-gray-900 pr-4">
+                  Quant costa OpoFast?
+                </span>
+                <svg id="arrow-4" className="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-4" className="px-6 pb-5 hidden">
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    El preu de les subscripcions d'OpoFast varia en funció del tipus de subscripció que triïs i la seva duració: curs (per a les especialitats disponibles) o preparació general. Per facilitar-te l'estudi, com més mesos es contracti més barat surt el mes.{" "}
+                    <span className="font-semibold" style={{ color: '#5FBFF9' }}>Tria la teva oposició i coneix el seu preu!</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ 5 */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <button 
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => {
+                  const content = document.getElementById('faq-5');
+                  const arrow = document.getElementById('arrow-5');
+                  if (content && arrow) {
+                    if (content.classList.contains('hidden')) {
+                      content.classList.remove('hidden');
+                      arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                      content.classList.add('hidden');
+                      arrow.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                }}
+              >
+                <span className="text-base md:text-lg font-medium text-gray-900 pr-4">
+                  Quines oposicions estan disponibles a OpoFast?
+                </span>
+                <svg id="arrow-5" className="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-5" className="px-6 pb-5 hidden">
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Actualment a OpoFast oferim preparació per a les oposicions de Mossos d'Esquadra i Bombers de Catalunya. Estem treballant constantment per ampliar la nostra oferta i afegir més oposicions. Mantén-te al dia de les novetats seguint-nos a les xarxes socials!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ 6 - SEO optimized */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              <button 
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => {
+                  const content = document.getElementById('faq-6');
+                  const arrow = document.getElementById('arrow-6');
+                  if (content && arrow) {
+                    if (content.classList.contains('hidden')) {
+                      content.classList.remove('hidden');
+                      arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                      content.classList.add('hidden');
+                      arrow.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                }}
+              >
+                <span className="text-base md:text-lg font-medium text-gray-900 pr-4">
+                  Com preparar oposicions a Catalunya amb tests online?
+                </span>
+                <svg id="arrow-6" className="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="faq-6" className="px-6 pb-5 hidden">
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Preparar oposicions a Catalunya amb tests online és la manera més eficaç d'estudiar. OpoFast ofereix tests actualitzats per a oposicions de Mossos d'Esquadra, Bombers de Catalunya i altres cossos de seguretat. Els nostres tests inclouen preguntes sobre legislació catalana, protocols d'emergència i temari específic de cada oposició. Amb la nostra plataforma pots practicar des de casa, fer simulacres d'examen i seguir el teu progrés en temps real.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
+
+      <Footer />
     </div>
   );
 }
